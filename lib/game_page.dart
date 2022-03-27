@@ -1,6 +1,9 @@
+import 'dart:async';
+
 import 'package:final_620710312/api/api.dart';
 import 'package:final_620710312/model/quiz_data.dart';
 import 'package:flutter/material.dart';
+
 
 class GamePages extends StatefulWidget {
 
@@ -37,6 +40,7 @@ class _GamePagesState extends State<GamePages> {
           message = "ไม่ใช่ข้อนี้";
         }
       });
+      Timer timer = Timer(Duration(seconds:3),(){
         setState(() {
           message = "";
           if (quiz![count].answer == choice) {
@@ -45,7 +49,7 @@ class _GamePagesState extends State<GamePages> {
             wrong++;
           }
         });
-
+      });
     }
 
     Widget printGuess() {
